@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!--money form-->
+        <record model="ir.ui.view" id="money_form_view" >
+			<field name="name">Money List Generation</field>
+			<field name="model">money.receipt</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Money">
+                    <header>
+                        <header>
+                        <button name="make_confirm"  string="Done"  type="object" attrs="{'invisible': [('state','in',('done'))]}"/>
+                        <button name="make_cancel"  string="Cancel"  type="object" attrs="{'invisible': [('state','in',('done'))]}"/>
+
+                    </header>
+                    </header>
+                    <sheet>
+                        <h1>
+                            <label string="Money Receipt"/>
+                        </h1>
+                        <group string="Information">
+                            <group>
+                                <field name="date"/>
+                                <field name="journal_id"/>
+                                <field name="period_id"/>
+                                <field name="description"/>
+                                <field name="address"/>
+                                <field name="deposit_to"/>
+                                <field name="towards_to"/>
+                                <field name="amount"/>
+                                <field name="state"/>
+                            </group>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--money starting action-->
+        <record model="ir.actions.act_window" id="money_new_action" >
+			<field name="name">Money List</field>
+			<field name="res_model">money.receipt</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">Click to create a new money receipt.
+				</p>
+			</field>
+		</record>
+
+
+
+        <!--money record receipt tree-->
+        <record model="ir.ui.view" id="money_tree_view" >
+            <field name="name">money.receipt.tree</field>
+            <field name="model">money.receipt</field>
+            <field name="arch" type="xml">
+                <tree string="Money List">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="journal_id"/>
+                    <field name="period_id"/>
+                    <field name="description"/>
+                    <field name="address"/>
+                    <field name="deposit_to"/>
+                    <field name="towards_to"/>
+                    <field name="amount"/>
+                    <field name="move_id"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+                <menuitem id="mr_receipts" name="Money Receipts" parent="account.menu_finance" sequence="5" groups="account.group_account_user,account.group_account_manager"/>
+                <menuitem id="mr_receipt" name="Money Receipt" parent="mr_receipts" action="money_new_action"/>
+
+<!--        <menuitem id="mr_receipt" name="Money Receipt" parent="leih.leih_billing_menu" action="money_new_action" sequence="5" />-->
+
+<!--        <menuitem id="main_moneyreceipt_menu" name="Money List"/>-->
+
+<!--        <menuitem id="moneyreceipt_menu" name="Money List" parent="main_moneyreceipt_menu"/>-->
+<!--        <menuitem id="money_menu" name="Receipt List" parent="main_moneyreceipt_menu" action="money_new_action"/>-->
+<!--        <menuitem id="main_moneyreceipt_menu" name="Money receipts" parent="account.menu_finance" groups="account.group_account_user" sequence="6"/>-->
+<!--        <menuitem id="menu_finance_charts" name="Charts" parent="menu_finance" groups="account.group_account_user" sequence="6"/>-->
+
+<!--        <menuitem name="Money receipt" id="main_moneyreceipt_menu"-->
+<!--            groups="base.group_sale_salesman"-->
+<!--            parent="base.menu_base_partner" sequence="5" />-->
+
+
+
+    </data>
+</openerp>

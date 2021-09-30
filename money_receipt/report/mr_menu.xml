@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report
+            string="Print Money Receipt"
+            id="action_report_money_receipt_layout"
+            model="money.receipt"
+            report_type="qweb-pdf"
+            name="blf.report_money_receipt_layout"
+            file="blf.report_money_receipt_layout"
+
+        />
+       </data>
+</openerp>

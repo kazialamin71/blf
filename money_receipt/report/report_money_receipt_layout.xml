@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_money_receipt_layout">
+            <t t-call="report.html_container">
+                <t t-call="report.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+<!--                            <div class="row">-->
+<!--                                -->
+<!--                            </div>-->
+
+                            <div class="oe_structure"/>
+
+                            <div style="align:center">
+                                <h2>
+                                    <span><span t-field="o.name"/></span>
+                                </h2>
+                            </div>
+
+                            <div class="row">
+                                    <b>Date: </b> <span t-field="o.date"/>
+                            </div>
+                            <div class="row">
+
+                                    <b>Received With Thanks From: </b> <span t-field="o.description" />
+
+                                    <b>Of:</b> <sapn t-field="o.address"/>
+
+                                    <b>Deposit To: </b><span t-field="o.deposit_to"/>
+
+                                    <b>Towards To: </b><span t-field="o.towards_to"/>
+
+                                    <b>TK: </b><span t-field="o.amount"/>
+                                </div>
+                            <div class="row">
+                                  <b>Prepared By: </b><span t-field="o.user_id"/>
+
+                            </div>
+                            <hr/>
+                            <br/><br/>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

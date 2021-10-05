@@ -19,22 +19,36 @@
                             </div>
 
                             <div class="row">
+                                <div class="col-xs-6">
                                     <b>Date: </b> <span t-field="o.date"/>
-                            </div>
-                            <div class="row">
-
-                                    <b>Received With Thanks From: </b> <span t-field="o.description" />
-
-                                    <b>Of:</b> <sapn t-field="o.address"/>
-
-                                    <b>Deposit To: </b><span t-field="o.deposit_to"/>
-
-                                    <b>Towards To: </b><span t-field="o.towards_to"/>
-
-                                    <b>TK: </b><span t-field="o.amount"/>
                                 </div>
-                            <div class="row">
-                                  <b>Prepared By: </b><span t-field="o.user_id"/>
+
+                                <div class="col-xs-12">
+                                    <b>Received With Thanks From: </b> <span t-field="o.description"/>
+                                </div>
+                                <div class="col-xs-12">
+                                    <strong>Of:</strong> <span t-field="o.address"/>
+                                </div>
+
+                                <div class="col-xs-12">
+                                    <strong>Deposit To: </strong><span t-field="o.deposit_to"/>
+
+                                </div>
+
+                                 <div class="col-xs-12">
+                                    <strong>Towards To:</strong> <span t-field="o.towards_to"/>
+                                </div>
+
+                                <div class="row">
+
+                                <div class="col-xs-6">
+                                    <strong>TK: </strong><span t-field="o.amount"/>/-
+                                </div>
+
+                                <div class="col-xs-6">
+                                    <strong>Prepared By:</strong> <span t-field="o.user_id"/>
+                                </div>
+                                </div>
 
                             </div>
                             <hr/>

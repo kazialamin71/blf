@@ -67,8 +67,8 @@ class  MoneyReceipt(osv.osv):
 
             ids = [element]
             res = self.browse(cr, uid, [element], context=context)[0]
-            import pdb
-            pdb.set_trace()
+            # import pdb
+            # pdb.set_trace()
 
             journal_vals["journal_id"]=res.journal_id.id
             journal_vals["period_id"]=res.period_id.id
@@ -99,6 +99,7 @@ class  MoneyReceipt(osv.osv):
             journal_vals["line_id"] = [[0,False,debit_temp_dict],[0,False,credit_temp_dict]]
             account_obj = self.pool.get('account.move')
             move_id = account_obj.create(cr, uid, journal_vals, context=context)
+            account_obj = self.pool.get('account.move').button_validate(cr, uid, [move_id], context=context)
             
             
             if ids is not None and move_id is not None:

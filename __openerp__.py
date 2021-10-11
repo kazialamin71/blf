@@ -16,6 +16,8 @@ All Changes are here
         'money_receipt/money_receipt_view.xml',
         'money_receipt/report/report_money_receipt_layout.xml',
         'money_receipt/report/mr_menu.xml',
+        'security/leih_security.xml',
+        'security/ir.model.access.csv',
 
 
     ],

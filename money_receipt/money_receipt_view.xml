@@ -77,7 +77,7 @@
         </record>
 
                 <menuitem id="mr_receipts" name="Money Receipts" parent="account.menu_finance" sequence="5" groups="account.group_account_user,account.group_account_manager"/>
-                <menuitem id="mr_receipt" name="Money Receipt" parent="mr_receipts" action="money_new_action"/>
+                <menuitem id="mr_receipt" name="Money Receipt" parent="mr_receipts" action="money_new_action" groups="blf.group_money_receipt_blf"/>
 
 <!--        <menuitem id="mr_receipt" name="Money Receipt" parent="leih.leih_billing_menu" action="money_new_action" sequence="5" />-->
 

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_mr_menu_,money.receipt,model_money_receipt,group_money_receipt_blf,1,1,1,0
+

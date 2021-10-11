@@ -5,6 +5,7 @@ from openerp.osv import osv, fields
 from openerp import SUPERUSER_ID, api
 from openerp.tools.translate import _
 from datetime import datetime
+from openerp.tools.amount_to_text_en import amount_to_text
 
 
 
@@ -141,5 +142,16 @@ class  MoneyReceipt(osv.osv):
             cr.execute('update money_receipt set name=%s where id=%s', (name_text, receipt_id))
             cr.commit()
         return receipt_id
+
+    @api.multi
+    def amount_to_text(self, amount, currency='Bdt'):
+        text = amount_to_text(amount, currency)
+        new_text = text.replace("euro", "Taka")
+        # initializing sub string
+        sub_str = "Taka"
+        final_text = new_text[:new_text.index(sub_str) + len(sub_str)]
+
+        # final_text = new_text.replace("Cent", "Paisa")
+        return final_text
 
 

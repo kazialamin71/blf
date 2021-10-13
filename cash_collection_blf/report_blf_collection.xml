@@ -7,8 +7,8 @@
                     <div class="page">
                         <div class="row">
                             <div class="col-md-6 pull-center">
-                                <h3>Bangladesh Lions Foundation</h3>
-                                <h4>BLF Income Reports</h4>
+                                <h3 style="text-align:center">Bangladesh Lions Foundation</h3>
+                                <h4 style="text-align:center">BLF Income Reports</h4>
                                 <span t-esc="get_user_context(data['form']['date_start'],data['form']['date_end'])"/>
                             </div>
                         </div>
@@ -17,7 +17,10 @@
                     <thead>
                         <tr>
                             <th>Sl</th>
-                            <th>Income</th>
+                            <th>MR No.</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Income Head</th>
                             <th>Quantity</th>
                             <th>Total</th>
 
@@ -29,18 +32,17 @@
                        <tr t-foreach="get_user_names(data['form']['date_start'],data['form']['date_end'])" t-as="move_a">
                            <t t-set="sl" t-value="sl+1"/>
                                 <td><span t-esc="sl"/></td>
+                                <td><span t-esc="move_a['mr_no']"/></td>
+                                <td><span t-esc="move_a['d_name']"/></td>
+                                <td><span t-esc="move_a['address']"/></td>
                                 <td><span t-esc="move_a['acc_name']"/></td>
                                 <td><span t-esc="move_a['count']"/></td>
                                 <td><span t-esc="move_a['total_amount']"/></td>
                                 <t t-set="total" t-value="total+move_a['total_amount']"/>
 
                        </tr>
-                        <tr>
-                            <th>-</th>
-                            <th>-</th>
-                            <th>Total:<t t-esc="total"/></th>
 
-                        </tr>
+                        <h3>Total Income : <t t-esc="total"/></h3>
 
 <!--                        <h3>Total=<t t-esc="total"/></h3>-->
 <!--                        <p>Advance Collection=<t t-esc="adv_collection"/> </p>-->

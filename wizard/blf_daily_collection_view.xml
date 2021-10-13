@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="view_blf_daily_collection" model="ir.ui.view">
+            <field name="name">CC Details</field>
+            <field name="model">blf.daily.collection</field>
+            <field name="arch" type="xml">
+                <form string="CC Details">
+                    <group col="4" string="Dates">
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+
+                    <footer>
+                        <button name="print_blf_report" type="object" string="Print Report" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_report_blf_collection" model="ir.actions.act_window">
+            <field name="name">blf Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">blf.daily.collection</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem icon="STOCK_PRINT" action="action_report_blf_collection"
+                id="menu_daily_blf_collection" parent="mr_receipts" sequence="12" />
+
+
+        <report
+                id="action_blf_daily_u_collection"
+                model="money.receipt"
+                string="BLF Collection"
+                report_type="qweb-pdf"
+                name="blf.report_blf_collection"
+                file="blf.report_blf_collection"
+                menu="False"
+
+        />
+
+
+    </data>
+</openerp>

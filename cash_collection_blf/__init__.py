@@ -1,0 +1,1 @@
+import blf_collection_details

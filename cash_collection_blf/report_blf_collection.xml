@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_blf_collection">
+            <t t-call="report.html_container">
+               <t t-call="report.internal_layout">
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-md-6 pull-center">
+                                <h3>Bangladesh Lions Foundation</h3>
+                                <h4>BLF Income Reports</h4>
+                                <span t-esc="get_user_context(data['form']['date_start'],data['form']['date_end'])"/>
+                            </div>
+                        </div>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Sl</th>
+                            <th>Income</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="sl" t-value="0"/>
+                        <t t-set="total" t-value="0"/>
+                       <tr t-foreach="get_user_names(data['form']['date_start'],data['form']['date_end'])" t-as="move_a">
+                           <t t-set="sl" t-value="sl+1"/>
+                                <td><span t-esc="sl"/></td>
+                                <td><span t-esc="move_a['acc_name']"/></td>
+                                <td><span t-esc="move_a['count']"/></td>
+                                <td><span t-esc="move_a['total_amount']"/></td>
+                                <t t-set="total" t-value="total+move_a['total_amount']"/>
+
+                       </tr>
+                        <tr>
+                            <th>-</th>
+                            <th>-</th>
+                            <th>Total:<t t-esc="total"/></th>
+
+                        </tr>
+
+<!--                        <h3>Total=<t t-esc="total"/></h3>-->
+<!--                        <p>Advance Collection=<t t-esc="adv_collection"/> </p>-->
+<!--                        <p>Due Collection=<t t-esc="due_collection"/> </p>-->
+<!--                         <h3>Total Received =<t t-esc="test_variable"/></h3>-->
+<!--                        <p>Total Due=<t t-esc="total_due"/> </p>-->
+
+
+                    </tbody>
+
+                </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>
+
+

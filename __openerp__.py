@@ -18,6 +18,9 @@ All Changes are here
         'money_receipt/report/mr_menu.xml',
         'security/leih_security.xml',
         'security/ir.model.access.csv',
+        'wizard/blf_daily_collection_view.xml',
+        'cash_collection_blf/report_blf_collection.xml'
+
 
 
     ],

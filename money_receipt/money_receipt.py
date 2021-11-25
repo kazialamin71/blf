@@ -122,17 +122,17 @@ class  MoneyReceipt(osv.osv):
 
         return 'True'
 
-    def write(self, cr, uid, ids, vals, context=None):
-        cr.execute("select state from  money_receipt where id=%s", (ids))
-        result_list = cr.fetchall()
-
-        for item in result_list:
-            if str(item[0]) == 'done' or str(item[0]) == 'cancel':
-                raise osv.except_osv(_('Message'), _("Sorry You Can not Edit it. Because it is already confirmed/Cancelled."))
-        if isinstance(ids, (int, long)):
-            ids = [ids]
-        res = super(MoneyReceipt, self).write(cr, uid, ids, vals, context=context)
-        return res
+    # def write(self, cr, uid, ids, vals, context=None):
+    #     cr.execute("select state from  money_receipt where id=%s", (ids))
+    #     result_list = cr.fetchall()
+    #
+    #     for item in result_list:
+    #         if str(item[0]) == 'done' or str(item[0]) == 'cancel':
+    #             raise osv.except_osv(_('Message'), _("Sorry You Can not Edit it. Because it is already confirmed/Cancelled."))
+    #     if isinstance(ids, (int, long)):
+    #         ids = [ids]
+    #     res = super(MoneyReceipt, self).write(cr, uid, ids, vals, context=context)
+    #     return res
 
     def create(self, cr, uid, vals, context=None):
         receipt_id = super(MoneyReceipt, self).create(cr, uid, vals, context) # return ID int object

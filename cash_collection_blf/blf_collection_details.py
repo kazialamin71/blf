@@ -14,7 +14,7 @@ class blf_collcetion_details(report_sxw.rml_parse):
         result = []
 
         query_for_blf="select a.name dr,sum(amount), count(a.id),money_receipt.description,money_receipt.address,money_receipt.name from money_receipt,account_account a where  a.id=money_receipt.towards_to and " \
-                         "(money_receipt.create_date <= '%s') and (money_receipt.create_date >= '%s') group by a.name,money_receipt.description,money_receipt.address,money_receipt.name"
+                         "(money_receipt.create_date <= '%s') and (money_receipt.create_date >= '%s') and money_receipt.state='done' group by a.name,money_receipt.description,money_receipt.address,money_receipt.name"
         self.cr.execute(query_for_blf % (end_date,st_dat))
         blf_info = []
         for items in self.cr.fetchall():

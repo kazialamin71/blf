@@ -3,18 +3,23 @@
     <data>
         <template id="report_money_receipt_layout">
             <t t-call="report.html_container">
-                <t t-call="report.external_layout">
+<!--                <t t-call="report.external_layout">-->
                     <t t-foreach="docs" t-as="o">
                         <div class="page">
+
+                            <div class="row">
+                            <div class="col-md-6 pull-center">
+                                <h3 style="text-align:center">Bangladesh Lions Foundation</h3>
+                                <h4 style="text-align:center">Money Receipt</h4>
+                                <span t-esc="get_user_context(data['form']['date_start'],data['form']['date_end'])"/>
+                            </div>
+                        </div>
 <!--                            <div class="row">-->
 <!--                                -->
 <!--                            </div>-->
 
                             <div class="oe_structure"/>
 
-                            <div style="text-align:center">
-                                <h4>Money Receipt</h4>
-                            </div>
 
                                 <h5>
                                     <span><span t-field="o.name"/></span>
@@ -69,7 +74,7 @@
                             <br/><br/>
                         </div>
                     </t>
-                </t>
+<!--                </t>-->
             </t>
         </template>
     </data>

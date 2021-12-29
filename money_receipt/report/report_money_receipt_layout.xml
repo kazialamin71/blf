@@ -9,9 +9,12 @@
 
                             <div class="row">
                             <div class="col-md-6 pull-center">
-                                <h3 style="text-align:center">Bangladesh Lions Foundation</h3>
+<img t-if="res_company.logo" t-att-src="'data:image/png;base64,%s' %res_company.logo" style="  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;"/>
+                                <h3 style="text-align:center">Lions Eye Institute &amp; Hospital </h3>
                                 <h4 style="text-align:center">Money Receipt</h4>
-                                <span t-esc="get_user_context(data['form']['date_start'],data['form']['date_end'])"/>
                             </div>
                         </div>
 <!--                            <div class="row">-->

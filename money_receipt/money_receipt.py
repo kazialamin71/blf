@@ -74,7 +74,7 @@ class  MoneyReceipt(osv.osv):
             journal_vals["journal_id"]=res.journal_id.id
             journal_vals["period_id"]=res.period_id.id
             journal_vals["date"]=res.date
-            journal_vals["ref"]=res.address
+            journal_vals["ref"]=res.address + ' ('+res.name+')'
 
             debit_temp_dict={'analytic_account_id': False,
                        'tax_code_id': False,

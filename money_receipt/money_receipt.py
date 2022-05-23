@@ -12,6 +12,7 @@ from openerp.tools.amount_to_text_en import amount_to_text
 class  MoneyReceipt(osv.osv):
     _name = 'money.receipt'
     _description = "Money Receipt List"
+    _order = 'id desc'
 
 
     def _get_period(self, cr, uid, context=None):
